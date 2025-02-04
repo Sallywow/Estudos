@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>GV I 04</title>
+    <style>
+        body{
+            background-color: rgba(61, 69, 85, 0.664);
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+        }
+        .box-nav{
+            background-color: rgba(28, 1, 102, 0.541);
+            padding: 5px;
+            border-radius: 15px;
+        }
+        .box{
+            background-color: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 15px;
+            border-radius: 15px;
+            color: white;
+
+        }
+        .num{
+            padding: 10px;
+            border:none;
+            outline: none;
+            border-radius: 10px;
+            font-size: 15px;
+            width: 50%;
+        }
+        button{
+            padding: 10px;
+            border: none;
+            outline: none;
+            width: 50%;
+            background-color: rgb(76, 61, 179);
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.5s;
+
+        }
+        button:hover{
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box-nav">
+        <h1>EXERCÍCIO #04</h1>
+        <h2>Gustavo Vasconcelos dos Santos</h2>
+    </div>
+    <div class="box">
+        <p>Leia 2 números. Efetue as 4 operações matemáticas e mostre os resultados.</p>
+        <input type="number" id="value1" class="num" placeholder="Digite um valor A">
+        <br><br>
+        <input type="number" id="value2" class="num" placeholder="Digite um valor B">
+        <br><br>
+        <input type="radio" id="adição" name="operation" value="adição"> 
+        <label for="adição">Adição</label>
+        <br><br>
+        <input type="radio" id="subtração" name="operation" value="subtração"> 
+        <label for="subtração">Subtração</label>
+        <br><br>
+        <input type="radio" id="multiplicação" name="operation" value="multiplicação"> 
+        <label for="multiplicação">Multiplicação</label>
+        <br><br>
+        <input type="radio" id="divisão" name="operation" value="divisão"> 
+        <label for="divisão">Divisão</label>
+        <br><br>
+        <button onclick="calculation()">Enviar</button>
+    </div>
+</body>
+<script>
+    function calculation()
+    {
+        var a = parseInt(document.querySelector('#value1').value);
+        var b = parseInt(document.querySelector('#value2').value);
+        var selectOperation = document.querySelector('input[name="operation"]:checked').value;
+        var nameOperation,calculo;
+        if(selectOperation == 'adição'){
+            nameOperation = 'Adição';
+            calculo = a + b;
+        }
+        else if(selectOperation == 'subtração'){
+            nameOperation = 'Subtração';
+            calculo = a - b;
+        }
+        else if(selectOperation == 'multiplicação'){
+            nameOperation = 'Multiplicação';
+            calculo = a * b;
+        }
+        else
+        {
+            nameOperation = 'Divisão';
+            calculo = a / b;
+        }
+        alert(nameOperation+': '+calculo);
+    }
+</script>
+</html>
